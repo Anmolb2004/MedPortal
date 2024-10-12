@@ -1,0 +1,82 @@
+.camp-section {
+  padding: 4rem 10vw;
+  text-align: center;
+}
+
+.camp-heading {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.camp-collage {
+  display: flex;
+  flex-direction: column; /* Stack images vertically */
+  align-items: flex-start; /* Align top image to the left */
+}
+
+/* Top Image (Left Aligned) */
+.camp-image.image1 {
+  width: 60%; /* Adjust width for left-aligned image */
+  height: 300px; /* Set height */
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.camp-image.image1:hover {
+  transform: scale(1.05); /* Scale effect on hover */
+}
+
+/* Row for Middle Images */
+.camp-row {
+  display: flex;
+  width: 100%; /* Full width */
+  justify-content: space-between; /* Space between images */
+  margin: 15px 0; /* Space between the rows */
+}
+
+/* Middle Images (2 in a Row) */
+.camp-image.image2,
+.camp-image.image3 {
+  width: 45%; /* Adjust width for middle images */
+  height: 200px; /* Set height */
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* Bottom Image (Right Aligned) */
+.camp-image.image4 {
+  width: 60%; /* Same width as the top image */
+  height: 300px; /* Set height */
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  margin-left: auto; /* Align this image to the right */
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+.camp-image:hover {
+  transform: scale(1.05); /* Scale effect on hover */
+}
+
+/* Optional: Add a color overlay for aesthetics */
+.camp-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent black overlay */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.camp-image:hover::after {
+  opacity: 1; /* Show overlay on hover */
+}

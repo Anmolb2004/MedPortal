@@ -1,0 +1,59 @@
+.Sendbiography {
+  display: flex;
+  margin-top: 10vh;
+  padding-bottom: 60px;
+  width: 98vw;
+  height: 90vh;
+  padding-inline: 10vw;
+  gap: 12vw;
+}
+.Sendimagebanner {
+  transform: scale(0.8); /* Start smaller */
+  opacity: 0; /* Initially hidden */
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+.Sendimagebanner img {
+  width: 30vw;
+  height: 50vh;
+}
+.Sendbanner {
+  margin-top: 10vh;
+  transform: scale(0.8); /* Start smaller */
+  opacity: 0; /* Initially hidden */
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+.Sendbanner form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 5vh;
+}
+.Sendbanner form div {
+  display: flex;
+  width: 30vw;
+  justify-content: space-between;
+  align-items: center;
+}
+.Sendbanner form div input,
+textarea {
+  padding: 10px 10px;
+  border: none;
+  border-bottom: 2px solid black;
+  outline: none;
+  background-color: rgb(254, 254, 252);
+  border-radius: 3px;
+}
+.Sendbanner form div button {
+  padding: 20px 35px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: rgb(3, 3, 39);
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
+}
+.slide-in {
+  transform: scale(1); /* Full size */
+  opacity: 1; /* Fully visible */
+}

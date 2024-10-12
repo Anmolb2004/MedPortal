@@ -1,0 +1,102 @@
+@media (max-width: 700px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+.rotating-word {
+  display: inline-block;
+  transition: opacity 0.1s ease-in-out; /* Smooth transition for visibility */
+  opacity: 1; /* Ensure opacity is 1 when visible */
+}
+
+.hero {
+  display: flex;
+  padding-top: 120px;
+  padding-inline: 80px;
+  padding-bottom: 120px;
+  position: relative;
+  /* background-image: url('/hero.png'); */
+  background-size: cover;
+  /* flex-direction: column; */
+  height: 95vh;
+  /* width: 100vw; */
+}
+.hero .banner{
+  width: 750px;
+  color: rgb(5, 12, 51);
+}
+.hero .banner h1, .hero .banner span {
+  letter-spacing: 2px;
+  word-spacing: 5px;
+  font-size: 60px;
+  text-transform: uppercase;
+}
+.hero .banner span{
+  color: rgb(22, 41, 150);
+}
+.hero .banner p {
+  /* color: #111; */
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+.hero .banner p button {
+  padding: 20px;
+  font-size: 15px;
+  color: white;
+  font-weight: 600;
+  border: none;
+  width: 200px;
+  height: 8vh;
+  border-radius: 7px;
+  background-image: linear-gradient(to right, #bed5f6, #337bf7);
+  /* transition: background-image 1s ease; */
+  cursor: pointer;
+}
+
+.hero .banner:first-child {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 50px;
+}
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%); /* Start off-screen on the left */
+    opacity: 0; /* Hidden */
+  }
+  100% {
+    transform: translateX(0); /* End at the original position */
+    opacity: 1; /* Fully visible */
+  }
+}
+
+/* Apply the animation */
+.slide-in {
+  animation: slideInFromLeft 0.8s ease-out forwards; /* 1 second animation */
+}
+
+@media (max-width: 1186px) {
+  .hero .banner span {
+    right: -400px;
+  }
+  .hero .banner h1 {
+    font-size: 32px;
+  }
+}
+@media (max-width: 1085px) {
+  .hero .banner span {
+    right: -480px;
+    top: -315px;
+  }
+}
+@media (max-width: 925px) {
+  .hero {
+    flex-direction: column;
+  }
+  @media (max-width: 700px) {
+    .hero {
+      padding-bottom: 40px;
+    }
+  }
+}

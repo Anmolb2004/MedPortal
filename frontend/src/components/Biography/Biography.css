@@ -1,0 +1,82 @@
+.biography {
+  display: flex;
+  margin-top: 10vh;
+  padding-bottom: 60px;
+  width: 98vw;
+  height: 90vh;
+  padding-inline: 10vw;
+  gap: 12vw;
+}
+.biography .imagebanner {
+  width: 35vw;
+  height: 60vh;
+  background-size: cover;
+  opacity: 0; /* Initially hidden */
+  transform: scale(0.8); /* Start smaller */
+  opacity: 0; /* Initially hidden */
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+.biography .banner {
+  opacity: 0; /* Initially hidden */
+  transform: scale(0.8); /* Start smaller */
+  opacity: 0; /* Initially hidden */
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+.slide-in {
+  transform: scale(1); /* Full size */
+  opacity: 1;  /* Slide into place */
+}
+
+.biography .banner {
+  width: 30vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.biography .banner h2 {
+  margin-bottom: 50px;
+  font-size: 40px;
+  color: rgb(5, 5, 45);
+}
+.biography .banner p {
+  color: rgb(0, 128, 255);
+  font-weight: 600;
+}
+
+.biography .banner .icons {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory; /* For snapping to each feature */
+  gap: 20px; /* Adjust the gap between features */
+  width: 100%; /* Set to full width of the container */
+  scroll-behavior: smooth;
+}
+.icons::-webkit-scrollbar {
+  display: none;
+}
+.icons img {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+}
+.icons .icon {
+  flex: 0 0 100%; /* Each feature takes up the full width of the container */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  padding: 20px;
+  height: 300px;
+  gap: 20px;
+}
+.icons .icon h4{
+  color: rgb(5, 5, 45);
+}
+
+@media (max-width: 925px) {
+  .biography {
+    flex-direction: column-reverse;
+  }
+}

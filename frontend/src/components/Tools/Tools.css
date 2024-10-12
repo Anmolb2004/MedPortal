@@ -1,0 +1,48 @@
+.tools-slider {
+  width: 90vw; /* Width set to 90vw */
+  height: 70vh; /* Height set to 70vh */
+  overflow: hidden;
+  position: relative;
+  background-color: white; /* White background */
+  display: flex; /* Flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  margin: 0 auto; /* Center in the viewport */
+}
+
+.tools-card {
+  display: flex;
+  transition: transform 0.5s ease-in-out; /* Smooth transition */
+}
+
+.tool {
+  min-width: 100%; /* Each tool takes full width */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.tool-image {
+  width: 40%; /* Adjust width as needed */
+  height: 40vh;
+  border-radius: 10px; /* Rounded corners for image */
+  object-position: center;
+}
+
+.tool-details {
+  padding: 20px;
+  width: 40%; /* Adjust width as needed */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tool-details h3 {
+  color: #007bff; /* Blue color for headings */
+}
+
+.tool-details p {
+  color: #333; /* Dark text color for readability */
+  text-align: center;
+}

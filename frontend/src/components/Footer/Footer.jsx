@@ -1,49 +1,53 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaLocationArrow, FaPhone } from "react-icons/fa6";
+import { FaPhone, FaLocationArrow } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import "./Footer.css";
 
 const Footer = () => {
   const hours = [
     {
       id: 1,
-      day: "Monday",
-      time: "9:00 AM - 11:00 PM",
+      day: "Monday  ",
+      time: "    9:00 AM - 1:00 PM",
     },
     {
       id: 2,
-      day: "Tuesday",
-      time: "9:00 AM - 11:00 PM",
+      day: "Tuesday  ",
+      time: "    9:00  - 1:00 PM",
     },
     {
       id: 3,
-      day: "Wednesday",
-      time: "10:00 AM - 10:00 PM",
+      day: "Wednesday  ",
+      time: "    9:00 AM - 1:00 PM",
     },
     {
       id: 4,
-      day: "Thursday",
-      time: "9:00 AM - 9:00 PM",
+      day: "Thursday  ",
+      time: "    9:00 AM - 1:00 PM",
     },
     {
       id: 5,
-      day: "Monday",
-      time: "3:00 PM - 9:00 PM",
+      day: "Friday  ",
+      time: "    9:00 AM - 11:00 AM",
     },
     {
       id: 6,
-      day: "Saturday",
-      time: "9:00 AM - 3:00 PM",
+      day: "Saturday  ",
+      time: "    9:00 AM - 11:00 AM",
+    },
+    {
+      id: 7,
+      day: "Sunday  ",
+      time: "    9:00 AM - 11:00 AM",
     },
   ];
-
   return (
     <>
-      <footer className={"container"}>
-        <hr />
+      <footer>
         <div className="content">
           <div>
-            <img src="/logo.png" alt="logo" className="logo-img"/>
+            <img src="/logo.png" alt="logo" className="logo-img" />
           </div>
           <div>
             <h4>Quick Links</h4>
@@ -55,28 +59,28 @@ const Footer = () => {
           </div>
           <div>
             <h4>Hours</h4>
-            <ul>
-              {hours.map((element) => (
+            {hours.map((element) => {
+              return (
                 <li key={element.id}>
                   <span>{element.day}</span>
                   <span>{element.time}</span>
                 </li>
-              ))}
-            </ul>
+              );
+            })}
           </div>
           <div>
             <h4>Contact</h4>
             <div>
               <FaPhone />
-              <span>6239114439</span>
+              <span>00-999-999-999</span>
             </div>
             <div>
               <MdEmail />
-              <span>anmolbansal1969@ gmail.com</span>
+              <span>zeecare&gmail.com</span>
             </div>
             <div>
               <FaLocationArrow />
-              <span>Chandigarh,INDIA</span>
+              <span>Mohali, Punjab, India</span>
             </div>
           </div>
         </div>

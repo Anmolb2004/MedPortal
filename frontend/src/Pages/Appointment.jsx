@@ -1,15 +1,18 @@
 import React from "react";
-import Hero from "../components/Hero";
-import AppointmentForm from "../components/AppointmentForm";
+import AppointmentForm from "../components/AppointmentForm.jsx";
+import Head from "../components/head/Head.jsx";
 
 const Appointment = () => {
   return (
     <>
-      <Hero
-        title={"Schedule Your Appointment | ZeeCare Medical Institute"}
-        imageUrl={"/signin.png"}
+      <Head
+        imageUrl={"./appointment.Hero.webp"}
+        heading={"Book Your Appointment with Ease"}
+        desc={
+          "Effortlessly schedule your appointments with our intuitive system. Select your preferred time and let us handle the rest, ensuring you get the care you need, when you need it."
+        }
       />
-      <AppointmentForm/>
+      <AppointmentForm />
     </>
   );
 };

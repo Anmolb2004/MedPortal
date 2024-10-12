@@ -1,0 +1,81 @@
+.departments-container {
+  display: flex;
+  height: 90vh; /* Full height of the viewport */
+  /* overflow: hidden; Prevent scrolling of the entire container */
+  /* transform: translateX(-100%); Start hidden off the left side */
+  /* transition: transform 0.5s ease-in-out; Smooth transition */
+  padding: 50px 100px;
+  gap: 400px;
+}
+.department-details {
+  transition: transform 0.5s ease; /* Transition effect */
+  transform: translateX(100%); /* Initially slide out */
+  opacity: 0; /* Start hidden */
+  overflow: hidden;
+}
+
+.department-details.slide-in {
+  transform: translateX(0); /* Slide in */
+  opacity: 1; /* Show */
+}
+
+.department-details.slide-out {
+  transform: translateX(100%); /* Slide out */
+  opacity: 0; /* Hide */
+}
+
+.sidebar {
+  width: 25%; /* Sidebar takes up 25% of the width */
+  background-color: #f0f8ff; /* Light background for the sidebar */
+  padding: 20px; /* Padding around the sidebar */
+  box-shadow: 2px 0 5px rgba(7, 3, 50, 0.1); /* Shadow effect */
+  overflow-y: auto; /* Enable vertical scroll if necessary */
+}
+
+.department-item {
+  cursor: pointer; /* Change cursor to pointer for clickable items */
+  margin-bottom: 15px; /* Spacing between items */
+  padding: 10px; /* Padding inside each item */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.department-item:hover {
+  background-color: #e6f7ff; /* Change background on hover */
+}
+
+.department-item.active {
+  color: #007bff; /* Highlight color for the active item */
+  font-weight: bold; /* Bold text for active item */
+}
+
+.department-details {
+  width: 75%; /* Details section takes up 75% of the width */
+  padding: 20px; /* Padding around the details section */
+  background-color: #fff; /* White background for details */
+  overflow-y: auto; /* Enable vertical scroll if necessary */
+}
+
+.details-content {
+  max-width: 600px; /* Max width for content */
+  margin: 0 auto; /* Center the content */
+}
+
+.details-content h2 {
+  font-size: 2rem; /* Heading size */
+  margin-bottom: 20px; /* Spacing below the heading */
+}
+
+.details-content img {
+  width: 70%;
+  height: 400px; /* Maintain aspect ratio */
+  border-radius: 10px; /* Rounded corners for the image */
+  margin-bottom: 20px; /* Spacing below the image */
+}
+
+.details-content p {
+  font-size: 1rem; /* Font size for details text */
+  line-height: 1.5; /* Line height for readability */
+  color: #333; /* Dark color for text */
+  font-weight: 600;
+}

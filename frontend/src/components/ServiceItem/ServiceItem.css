@@ -1,0 +1,26 @@
+.service-item{
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    height: 30vh;
+    gap:20px;
+}
+.service-item .up{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+}
+.service-item .up img{
+    width: 5vw;
+    height: 8vh;
+}
+.service-item .up h4{
+    font-size: 20px;
+    color: black;
+}
+.service-item p{
+    font-size: 18px;
+    font-weight: 600;
+    color: grey;
+}
