@@ -2,10 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AboutUs from "./Pages/AboutUs.jsx";
-import Register from "./pages/Register.jsx";
-import Login from "./pages/Login.jsx";
-import Home from "./pages/home.jsx";
-import Appointment from "./pages/appointment.jsx";
+import Register from "./Pages/Register.jsx";
+import Login from "./Pages/Login.jsx";
+import Home from "./Pages/home.jsx";
+import Appointment from "./Pages/appointment.jsx";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -13,8 +13,8 @@ import Navbar from "./components/NavBar/Navbar.jsx";
 import { Context } from "./main.jsx";
 import axios from "axios";
 import Footer from "./components/Footer/Footer.jsx";
-import Doctors from "./pages/Doctors.jsx";
-import Department from "./pages/Department.jsx";
+import Doctors from "./Pages/Doctors.jsx";
+import Department from "./Pages/Department.jsx";
 
 const App = () => {
   const {isAuthenticated, setIsAuthenticated,setUser} = useContext(Context);
