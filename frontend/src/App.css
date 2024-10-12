@@ -93,26 +93,30 @@ h6 {
   height: auto;
 }
 .form-component h4,
-.login-form-component h4 {
+.login-form-component h4,
+.register-form-component h4 {
   color: gray;
   font-weight: 700;
   margin-bottom: 20px;
 }
 .form-component p,
-.login-form-component p {
+.login-form-component p,
+.register-form-component p {
   max-width: 750px;
   color: gray;
   margin-bottom: 20px;
 }
 .form-component form,
-.login-form-component form {
+.login-form-component form,
+.register-form-component form {
   display: flex;
   width: 50vw;
   flex-direction: column;
   gap: 30px;
 }
 .form-component form div,
-.login-form-component form div {
+.login-form-component form div,
+.register-form-component form div {
   display: flex;
   gap: 10px;
 }
@@ -121,14 +125,19 @@ h6 {
 .form-component form textarea,
 .login-form-component form input,
 .login-form-component form select,
-.login-form-component form textarea {
+.login-form-component form textarea,
+.register-form-component form input,
+.register-form-component form select,
+.register-form-component form textarea {
   flex: 1;
   font-size: 12px;
   padding: 10px 10px 10px 40px;
   border-radius: 7px;
   border: 1px solid gray;
 }
-.form-component button, .login-form-component button {
+.form-component button,
+.login-form-component button,
+.register-form-component button {
   margin-top: 6vh;
   padding: 10px 35px;
   color: #fff;
@@ -141,14 +150,20 @@ h6 {
   background: linear-gradient(140deg, #9083d5, #271776ca);
   cursor: pointer;
 }
-.form-component .wrapper , .login-form-component .wrapper{
+.form-component .wrapper,
+.login-form-component .wrapper,
+.register-form-component .wrapper {
   display: flex;
   gap: 50px;
 }
-.form-component .wrapper .banner, .login-form-component .wrapper .banner {
+.form-component .wrapper .banner,
+.login-form-component .wrapper .banner,
+.register-form-component .wrapper .banner {
   flex: 1;
 }
-.form-component .wrapper .banner:last-child , .login-form-component .wrapper .banner:last-child{
+.form-component .wrapper .banner:last-child,
+.login-form-component .wrapper .banner:last-child,
+.register-form-component .wrapper .banner:last-child {
   display: flex;
   justify-content: center;
   align-items: center;
