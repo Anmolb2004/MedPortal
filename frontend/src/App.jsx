@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AboutUs from "./Pages/AboutUs.jsx";
 import Register from "./Pages/Register.jsx";
 import Login from "./Pages/Login.jsx";
-import Home from "./Pages/home.jsx";
-import Appointment from "./Pages/appointment.jsx";
+import Home from "./Pages/Home.jsx";
+import Appointment from "./Pages/Appointment.jsx";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
