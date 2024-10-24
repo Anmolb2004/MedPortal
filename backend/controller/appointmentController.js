@@ -6,11 +6,8 @@ import fs from "fs";
 import path from "path"
 import csv from "csv-parser"
 
-const customDir = path.join(
-  "/Users/macbook/Desktop/MinorProject",
-  "backend",
-  "appointments.csv"
-);
+const customDir = path.join(__dirname, "backend", "appointments.csv");
+
 const initializeCSV = () => {
   if (!fs.existsSync(customDir)) {
     const headers =
