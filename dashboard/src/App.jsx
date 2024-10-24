@@ -9,7 +9,7 @@ import Message from "./Pages/Message/Message.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useContext } from "react";
-import { Context } from "./index.js";
+import { Context } from "./main.jsx";
 import axios from "axios";
 import "./App.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -60,7 +60,7 @@ const App = () => {
           { withCredentials: true }
         );
         setDoctors(data.doctors);
-        setDoctor(data.doctors[4]);
+        setDoctor(data.doctors[1]);
         count++;
       } catch (error) {
         toast.error(error.response.data.message);

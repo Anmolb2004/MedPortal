@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Context } from "../../index.js";
+import { Context } from "../../main.jsx";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { GiHamburgerMenu } from "react-icons/gi";

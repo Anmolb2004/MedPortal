@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { toast } from "react-toastify";
-import { Context } from "../../index.js";
+import { Context } from "../../main.jsx";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
 import "./Doctors.css";

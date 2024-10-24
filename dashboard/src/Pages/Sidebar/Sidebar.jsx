@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Context } from "../../index.js";
+import { Context } from "../../main.jsx";
 import { TiHome } from "react-icons/ti";
 import { RiLogoutBoxFill } from "react-icons/ri";
 import { AiFillMessage } from "react-icons/ai";

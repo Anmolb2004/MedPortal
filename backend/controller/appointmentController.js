@@ -1,13 +1,13 @@
 import { Appointment } from "../models/appointmentSchema.js";
 import { catchAsyncErrors } from "../middlewares/catchAsyncErrors.js";
-import ErrorHandler from "../middlewares/errorMiddleware.js";
+import ErrorHandler from "../middlewares/error.js";
 import { User } from "../models/userSchema.js";
 import fs from "fs";
 import path from "path"
 import csv from "csv-parser"
 
 const customDir = path.join(
-  "C:/Users/Harshvir/OneDrive/Desktop/MedPortal",
+  "/Users/macbook/Desktop/MinorProject",
   "backend",
   "appointments.csv"
 );

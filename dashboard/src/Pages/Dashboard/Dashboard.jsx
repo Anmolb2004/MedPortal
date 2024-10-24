@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Context } from "../../index.js";
+import { Context } from "../../main.jsx";
 import { Navigate } from "react-router-dom";
 import axios from "axios";
 import { GoCheckCircleFill } from "react-icons/go";
