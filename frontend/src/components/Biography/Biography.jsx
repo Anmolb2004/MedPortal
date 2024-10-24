@@ -43,6 +43,7 @@ const Biography = ({ imageUrl }) => {
           helping hospitals focus on patient care. With easy-to-use features for
           appointment scheduling, medical records, and administration, we aim to
           simplify healthcare management and enhance efficiency.
+          We are very Professional.
         </p>
         <div className="icons" ref={featuresRef}>
           <div className="icon">
