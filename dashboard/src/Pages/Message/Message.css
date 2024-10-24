@@ -1,0 +1,66 @@
+/* Overall styling for the messages page */
+.page.messages {
+  padding: 20px;
+  background-color: #f5f7fa;
+  color: #333;
+  min-height: 100vh; /* Ensure it takes the full height */
+}
+
+/* Header styling */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  color: #007bff;
+}
+
+/* Styling for the message banner */
+.banner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the cards */
+  gap: 20px; /* Space between cards */
+}
+
+/* Styling for individual message cards */
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Card shadow */
+  padding: 20px;
+  width: 300px; /* Fixed width for cards */
+  transition: transform 0.2s, box-shadow 0.2s; /* Smooth transition for hover effects */
+}
+
+/* Hover effect for cards */
+.card:hover {
+  transform: translateY(-5px); /* Lift effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+/* Styling for the message details */
+.details p {
+  margin: 10px 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Styling for highlighted text */
+span {
+  font-weight: bold;
+  color: #007bff; /* Use the primary color for emphasis */
+}
+
+/* No messages text styling */
+h1 {
+  color: #d9534f; /* Red color for 'No Messages!' */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card {
+    width: 100%; /* Full width on smaller screens */
+    max-width: 90%; /* Limit max width for mobile */
+  }
+}

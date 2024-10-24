@@ -1,0 +1,61 @@
+.doctor-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Banner {
+  width: 100vw;
+  height: 50vh;
+  background-color: #007bff; /* Similar to the blue header in your image */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.Banner h1{
+  text-transform: uppercase;
+  font-size: 40px;
+  color: white;
+}
+
+.doctor-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid white;
+}
+
+.doctor-info {
+  background-color: white;
+  width: 60vw;
+  margin-top: -75px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  border-radius: 10px;
+}
+
+.doctor-info h2 {
+  color: #007bff;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.doctor-info p {
+  font-size: 18px;
+  margin-bottom: 8px;
+  text-align: left;
+  margin-left: 180px;
+
+}
+
+.doctor-info strong {
+  color: #007bff;
+}
+.doctor-info em {
+  position: absolute;
+  left: 60vw;
+}
