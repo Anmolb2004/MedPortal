@@ -15,7 +15,7 @@ import axios from "axios";
 import Footer from "./components/Footer/Footer.jsx";
 import Doctors from "./Pages/Doctors.jsx";
 import Department from "./Pages/Department.jsx";
-import LocateUs from "./pages/LocateUs.jsx";
+import LocateUs from "./Pages/LocateUs.jsx";
 
 const App = () => {
   const { isAuthenticated, setIsAuthenticated, setUser } = useContext(Context);
