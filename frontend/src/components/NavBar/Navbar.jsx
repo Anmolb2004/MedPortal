@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Context } from "../../main.jsx";
+import { Context } from "../../index.js";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -12,7 +12,7 @@ const Navbar = () => {
   const navigateTo = useNavigate();
   const handleLogout = async () => {
     await axios
-      .get("https://medportal.onrender.com/api/v1/user/patient/logout", {
+      .get("http://localhost:4000/api/v1/user/patient/logout", {
         withCredentials: true,
       })
       .then((res) => {
@@ -38,6 +38,7 @@ const Navbar = () => {
           <Link to={"/doctor"}>Doctor</Link>
           <Link to={"/department"}>Department</Link>
           <Link to={"/about"}>About Us</Link>
+          <Link to={"/locate"}>Locate Us</Link>
         </div>
         {isAuthenticated ? (
           <div className="navbar-profile">

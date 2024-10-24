@@ -2,6 +2,7 @@ footer {
   padding: 50px 50px;
   background-color: rgb(48, 47, 47);
   color: white;
+  margin-top: 10vh;
 }
 footer .content {
   display: flex;

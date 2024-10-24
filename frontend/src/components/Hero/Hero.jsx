@@ -40,6 +40,7 @@ const Hero = () => {
 
     setCurrentWord(nextWord); // Update the current word
   };
+  
   const navigate = useNavigate();
   return (
     <div

@@ -15,28 +15,32 @@ import axios from "axios";
 import Footer from "./components/Footer/Footer.jsx";
 import Doctors from "./Pages/Doctors.jsx";
 import Department from "./Pages/Department.jsx";
+import LocateUs from "./pages/LocateUs.jsx";
 
 const App = () => {
-  const {isAuthenticated, setIsAuthenticated,setUser} = useContext(Context);
+  const { isAuthenticated, setIsAuthenticated, setUser } = useContext(Context);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get("https://medportal.onrender.com/api/v1/user/patient/me", { withCredentials: true });
+        const response = await axios.get(
+          "https://medportal.onrender.com/api/v1/user/patient/me",
+          { withCredentials: true }
+        );
         setIsAuthenticated(true);
         setUser(response.data.user);
       } catch (error) {
         setIsAuthenticated(false);
         setUser({});
       } finally {
-          setLoading(false)// Ensure that loading is set to false regardless of success or failure
+        setLoading(false); // Ensure that loading is set to false regardless of success or failure
       }
     };
     fetchUser();
   }, [isAuthenticated]);
 
   if (loading) {
-    return <div>Loading...</div>;  // Show a loading spinner or placeholder
+    return <div>Loading...</div>; // Show a loading spinner or placeholder
   }
   return (
     <>
@@ -50,8 +54,9 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/doctor" element={<Doctors />} />
           <Route path="/department" element={<Department />} />
+          <Route path="/locate" element={<LocateUs />} />
         </Routes>
-        <Footer/>
+        <Footer />
         <ToastContainer position="top-center" />
       </Router>
     </>
