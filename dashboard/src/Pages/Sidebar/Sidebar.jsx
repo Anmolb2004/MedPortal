@@ -8,6 +8,7 @@ import { FaUserDoctor } from "react-icons/fa6";
 import { MdAddModerator } from "react-icons/md";
 import { IoPersonAddSharp } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
+import { SlCalender } from "react-icons/sl";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "./Sidebar.css";
@@ -72,6 +73,13 @@ const Sidebar = () => {
           >
             <IoPersonAddSharp />
             <h4>Add new Doctor</h4>
+          </div>
+          <div
+            onClick={() => handleNavigation("Calender", "/calender")}
+            className={active === "Calender" ? "active" : ""}
+          >
+            <SlCalender style={{color:"pink"}}/>
+            <h4>Calender</h4>
           </div>
           <div
             onClick={() => handleNavigation("Messages", "/message")}

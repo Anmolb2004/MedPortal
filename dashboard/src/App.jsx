@@ -14,6 +14,7 @@ import axios from "axios";
 import "./App.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Sidebar from "./Pages/Sidebar/Sidebar.jsx";
+import AppCalendar from "./Pages/AppCalender/AppCalender.jsx";
 
 const App = () => {
   const { isAuthenticated, setIsAuthenticated, user, setUser } =
@@ -123,6 +124,7 @@ const App = () => {
           <Route path="/admin/addnew" element={<AddNewAdmin />} />
           <Route path="/message" element={<Message messages={messages} />} />
           <Route path="/doctors" element={<Doctors doctors={doctors} />} />
+          <Route path="/calender" element={<AppCalendar appointments={appointments} />} />
         </Routes>
         <ToastContainer position="top-center" />
       </Router>
