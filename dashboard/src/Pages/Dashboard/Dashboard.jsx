@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Context } from "../../main.jsx";
 import { Navigate } from "react-router-dom";
 import axios from "axios";
@@ -10,36 +10,40 @@ import LineChartAppointments from "../LineChart/LineChart.jsx";
 import DoughnutChartAppointments from "../Doughnut/Doughnut.jsx";
 import BestDoctor from "../BestDoctor/BestDoctor.jsx";
 
-const Dashboard = ({
-  appointments,
-  users,
-  doctors,
-  doctor,
-  setAppointments,
-}) => {
+const Dashboard = ({ appointments, users, doctors, doctor, setAppointments }) => {
   const { isAuthenticated, user } = useContext(Context);
+
   const handleStatus = async (appointmentId, status) => {
     try {
       const { data } = await axios.put(
-        `https://medportal.onrender.com/api/v1/appointment/update/${appointmentId}`,
+        `http://localhost:4000/api/v1/appointment/update/${appointmentId}`,
         { status },
         { withCredentials: true }
       );
+
+      // Send email notification for appointment status update
+      await axios.post("http://localhost:4000/api/v1/notification/send", {
+        email: data.appointment.email, // Adjust this if the email is in a different location
+        subject: "Appointment Status Update",
+        message: `Your appointment request has been "${status}".`,
+      });
+
       setAppointments((prevAppointments) =>
         prevAppointments.map((appointment) =>
-          appointment._id === appointmentId
-            ? { ...appointment, status }
-            : appointment
+          appointment._id === appointmentId ? { ...appointment, status } : appointment
         )
       );
       toast.success(data.message);
     } catch (error) {
       console.log(error.response);
+      toast.error("Failed to update status.");
     }
   };
+
   if (!isAuthenticated) {
     return <Navigate to={"/login"} />;
   }
+
   return (
     <>
       <section className="dashboard">
@@ -93,46 +97,34 @@ const Dashboard = ({
                   return (
                     <tr key={appointment._id}>
                       <td>{`${appointment.firstName} ${appointment.lastName}`}</td>
-                      <td>{`${appointment.appointment_date.substring(
-                        0,
-                        16
-                      )}`}</td>
+                      <td>{`${appointment.appointment_date.substring(0, 16)}`}</td>
                       <td>{`${appointment.doctor.firstName} ${appointment.doctor.lastName}`}</td>
                       <td>{`${appointment.department}`}</td>
-                      <select
-                        className={
-                          appointment.status === "Pending"
-                            ? "value-pending"
-                            : appointment.status === "Rejected"
-                            ? "value-rejected"
-                            : appointment.status === "Accepted"
-                            ? "value-accepted"
-                            : appointment.status === "Completed"
-                            ? "value-completed"
-                            : "value-notVisited"
-                        }
-                        value={appointment.status}
-                        onChange={(e) =>
-                          handleStatus(appointment._id, e.target.value)
-                        }
-                      >
-                        <option value="Pending" className="value-pending">
-                          Pending
-                        </option>
-                        <option value="Accepted" className="value-accepted">
-                          Accepted
-                        </option>
-                        <option value="Rejected" className="value-rejected">
-                          Rejected
-                        </option>
-                        <option value="Completed" className="value-completed">
-                          Completed
-                        </option>
-                        <option value="NotVisited" className="value-notVisited">
-                          Not Visited
-                        </option>
-                      </select>
-
+                      <td>
+                        <select
+                          className={
+                            appointment.status === "Pending"
+                              ? "value-pending"
+                              : appointment.status === "Rejected"
+                              ? "value-rejected"
+                              : appointment.status === "Accepted"
+                              ? "value-accepted"
+                              : appointment.status === "Completed"
+                              ? "value-completed"
+                              : "value-notVisited"
+                          }
+                          value={appointment.status}
+                          onChange={(e) =>
+                            handleStatus(appointment._id, e.target.value)
+                          }
+                        >
+                          <option value="Pending" className="value-pending">Pending</option>
+                          <option value="Accepted" className="value-accepted">Accepted</option>
+                          <option value="Rejected" className="value-rejected">Rejected</option>
+                          <option value="Completed" className="value-completed">Completed</option>
+                          <option value="NotVisited" className="value-notVisited">Not Visited</option>
+                        </select>
+                      </td>
                       <td>
                         {appointment.hasVisited === true ? (
                           <GoCheckCircleFill className="green" />
@@ -155,3 +147,4 @@ const Dashboard = ({
 };
 
 export default Dashboard;
+

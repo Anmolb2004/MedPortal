@@ -2,6 +2,7 @@ import { Appointment } from "../models/appointmentSchema.js";
 import { catchAsyncErrors } from "../middlewares/catchAsyncErrors.js";
 import ErrorHandler from "../middlewares/error.js";
 import { User } from "../models/userSchema.js";
+import { sendEmail } from "../utils/sendEmail.js"; // Import the sendEmail function
 
 export const postAppointment = catchAsyncErrors(async (req, res, next) => {
   const {
@@ -19,6 +20,7 @@ export const postAppointment = catchAsyncErrors(async (req, res, next) => {
     department,
     hasVisited,
   } = req.body;
+
   if (
     !firstName ||
     !lastName ||
@@ -35,15 +37,18 @@ export const postAppointment = catchAsyncErrors(async (req, res, next) => {
   ) {
     return next(new ErrorHandler("Please fill full form", 400));
   }
+
   const isConflict = await User.find({
     firstName: doctor_firstName,
     lastName: doctor_lastName,
     role: "Doctor",
     doctorDepartment: department,
   });
+
   if (isConflict.length === 0) {
     return next(new ErrorHandler("Doctor Not Found", 404));
   }
+
   if (isConflict.length > 1) {
     return next(
       new ErrorHandler(
@@ -52,6 +57,7 @@ export const postAppointment = catchAsyncErrors(async (req, res, next) => {
       )
     );
   }
+
   const doctorId = isConflict[0]._id;
   const patientId = req.user._id;
   const appointment = await Appointment.create({
@@ -73,11 +79,17 @@ export const postAppointment = catchAsyncErrors(async (req, res, next) => {
     doctorId,
     patientId,
   });
- 
+
+  // Send email to patient after booking
+  await sendEmail({
+    email,
+    subject: "Appointment Confirmation",
+    message: `Dear ${firstName} ${lastName}, your appointment with Dr. ${doctor_firstName} on ${appointment_date} has been successfully booked.`,
+  });
 
   res.status(200).json({
     success: true,
-    message: "Appointment Sent Successfully",
+    message: "Appointment Sent Successfully and Email Sent.",
     appointment,
   });
 });
@@ -92,6 +104,8 @@ export const getAllAppointments = catchAsyncErrors(async (req, res, next) => {
 
 export const updateStatus = catchAsyncErrors(async (req, res, next) => {
   const { id } = req.params;
+  const { status } = req.body;
+
   let appointment = await Appointment.findById(id);
   if (!appointment) {
     return next(new ErrorHandler("Appointment not found", 404));
@@ -102,9 +116,17 @@ export const updateStatus = catchAsyncErrors(async (req, res, next) => {
     runValidators: true,
     useFindAndModify: false,
   });
+
+  // Send email to patient on status update
+  await sendEmail({
+    email: appointment.email,
+    subject: "Appointment Status Update",
+    message: `Dear ${appointment.firstName}, your appointment status has been updated to: ${status}.`,
+  });
+
   res.status(200).json({
     success: true,
-    message: "Appointment Status Updated Successfully",
+    message: "Appointment Status Updated Successfully and Email Sent.",
     appointment,
   });
 });
@@ -121,3 +143,4 @@ export const deleteAppointment = catchAsyncErrors(async (req, res, next) => {
     message: "Appointment Deleted Successfully",
   });
 });
+

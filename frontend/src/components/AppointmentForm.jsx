@@ -20,9 +20,8 @@ const AppointmentForm = () => {
   const [hasVisited, setHasVisited] = useState("");
   const [address, setAddress] = useState("");
 
-  const formRef = useRef(null); // Create a ref to track the AppointmentForm
+  const formRef = useRef(null);
   const [scaleEffect, setScaleEffect] = useState(false);
-
   const departmentsArray = [
     "Pediatrics",
     "Orthopedics",
@@ -41,32 +40,30 @@ const AppointmentForm = () => {
   useEffect(() => {
     const fetchDoctors = async () => {
       const { data } = await axios.get(
-        "https://medportal.onrender.com/api/v1/user/doctors",
+        "http://localhost:4000/api/v1/user/doctors",
         { withCredentials: true }
       );
       setDoctors(data.doctors);
     };
     fetchDoctors();
 
-    // Using IntersectionObserver for scroll detection and scaling effect
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setScaleEffect(true); // Trigger the scale-up effect
+            setScaleEffect(true);
           } else {
-            setScaleEffect(false); // Remove the scale-up effect
+            setScaleEffect(false);
           }
         });
       },
-      { threshold: 0.5 } // Trigger when 50% of the component is visible
+      { threshold: 0.5 }
     );
 
     if (formRef.current) {
       observer.observe(formRef.current);
     }
 
-    // Cleanup the observer when component unmounts
     return () => {
       if (formRef.current) observer.unobserve(formRef.current);
     };
@@ -77,7 +74,7 @@ const AppointmentForm = () => {
     try {
       const hasVisitedBool = Boolean(hasVisited);
       const { data } = await axios.post(
-        "https://medportal.onrender.com/api/v1/appointment/post",
+        "http://localhost:4000/api/v1/appointment/post",
         {
           firstName,
           lastName,
@@ -101,6 +98,15 @@ const AppointmentForm = () => {
         }
       );
       toast.success(data.message);
+
+      // Send email notification for appointment booking
+      await axios.post("http://localhost:4000/api/v1/notification/send", {
+        email,
+        subject: "Appointment Booking Request",
+        message: `Your request for appointment with Dr. ${doctorFirstName} ${doctorLastName} has been successfully sent for ${appointmentDate}.`,
+      });
+      console.log(message);
+
       navigateTo("/");
     } catch (error) {
       toast.error(error.response.data.message);
@@ -112,7 +118,7 @@ const AppointmentForm = () => {
       className={`form-component appointment-form ${
         scaleEffect ? "scale-up" : ""
       }`}
-      ref={formRef} // Attach the ref to the form container
+      ref={formRef}
     >
       <div className="imageContain">
         <img src={"./appointmentForm.jpg"} alt="" />
@@ -243,3 +249,4 @@ const AppointmentForm = () => {
 };
 
 export default AppointmentForm;
+

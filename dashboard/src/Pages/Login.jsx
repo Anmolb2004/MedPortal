@@ -15,7 +15,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://medportal.onrender.com/api/v1/user/login",
+        "http://localhost:4000/api/v1/user/login",
         { email, password, confirmPassword, role: "Admin" },
         {
           withCredentials: true,

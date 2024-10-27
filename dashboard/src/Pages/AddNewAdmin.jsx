@@ -20,7 +20,7 @@ const AddNewAdmin = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://medportal.onrender.com/api/v1/user/admin/addnew",
+        "http://localhost:4000/api/v1/user/admin/addnew",
         { firstName, lastName, email, password, phone, nic, dob, gender },
         {
           withCredentials: true,

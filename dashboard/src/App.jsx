@@ -30,7 +30,7 @@ const App = () => {
     const fetchAppointments = async () => {
       try {
         const { data } = await axios.get(
-          "https://medportal.onrender.com/api/v1/appointment/getall",
+          "http://localhost:4000/api/v1/appointment/getall",
           { withCredentials: true }
         );
         setAppointments(data.appointments);
@@ -43,7 +43,7 @@ const App = () => {
     const fetchUsers = async () => {
       try {
         const { data } = await axios.get(
-          "https://medportal.onrender.com/api/v1/user/users",
+          "http://localhost:4000/api/v1/user/users",
           { withCredentials: true }
         );
 
@@ -57,7 +57,7 @@ const App = () => {
     const fetchDoctors = async () => {
       try {
         const { data } = await axios.get(
-          "https://medportal.onrender.com/api/v1/user/doctors",
+          "http://localhost:4000/api/v1/user/doctors",
           { withCredentials: true }
         );
         setDoctors(data.doctors);
@@ -70,7 +70,7 @@ const App = () => {
     const fetchMessages = async () => {
       try {
         const { data } = await axios.get(
-          "https://medportal.onrender.com/api/v1/message/getall",
+          "http://localhost:4000/api/v1/message/getall",
           { withCredentials: true }
         );
         setMessages(data.messages);
@@ -88,7 +88,7 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "https://medportal.onrender.com/api/v1/user/admin/me",
+          "http://localhost:4000/api/v1/user/admin/me",
           { withCredentials: true }
         );
         setIsAuthenticated(true);
