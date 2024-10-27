@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import Calendar from "react-calendar";
 import "./AppCalender.css";
 import { Navigate } from "react-router-dom";
-import { Context } from "../..";
+// import { Context } from "../..";
 import PropTypes from "prop-types";
 
 const AppCalendar = ({ appointments }) => {
