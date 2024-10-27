@@ -47,7 +47,7 @@ h1 {
 }
 
 /* Styling for highlighted text */
-span {
+.details p span {
   font-weight: bold;
   color: #007bff; /* Use the primary color for emphasis */
 }
