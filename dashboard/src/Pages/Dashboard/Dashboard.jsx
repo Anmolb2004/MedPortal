@@ -16,13 +16,13 @@ const Dashboard = ({ appointments, users, doctors, doctor, setAppointments }) =>
   const handleStatus = async (appointmentId, status) => {
     try {
       const { data } = await axios.put(
-        `http://localhost:4000/api/v1/appointment/update/${appointmentId}`,
+        `https://medportal.onrender.com/api/v1/appointment/update/${appointmentId}`,
         { status },
         { withCredentials: true }
       );
 
       // Send email notification for appointment status update
-      await axios.post("http://localhost:4000/api/v1/notification/send", {
+      await axios.post("https://medportal.onrender.com/api/v1/notification/send", {
         email: data.appointment.email, // Adjust this if the email is in a different location
         subject: "Appointment Status Update",
         message: `Your appointment request has been "${status}".`,

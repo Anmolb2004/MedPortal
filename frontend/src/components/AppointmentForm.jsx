@@ -40,7 +40,7 @@ const AppointmentForm = () => {
   useEffect(() => {
     const fetchDoctors = async () => {
       const { data } = await axios.get(
-        "http://localhost:4000/api/v1/user/doctors",
+        "https://medportal.onrender.com/api/v1/user/doctors",
         { withCredentials: true }
       );
       setDoctors(data.doctors);
@@ -74,7 +74,7 @@ const AppointmentForm = () => {
     try {
       const hasVisitedBool = Boolean(hasVisited);
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/appointment/post",
+        "https://medportal.onrender.com/api/v1/appointment/post",
         {
           firstName,
           lastName,
@@ -100,7 +100,7 @@ const AppointmentForm = () => {
       toast.success(data.message);
 
       // Send email notification for appointment booking
-      await axios.post("http://localhost:4000/api/v1/notification/send", {
+      await axios.post("https://medportal.onrender.com/api/v1/notification/send", {
         email,
         subject: "Appointment Booking Request",
         message: `Your request for appointment with Dr. ${doctorFirstName} ${doctorLastName} has been successfully sent for ${appointmentDate}.`,

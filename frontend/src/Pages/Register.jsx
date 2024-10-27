@@ -21,7 +21,7 @@ const Register = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/v1/user/patient/register",
+        "https://medportal.onrender.com/api/v1/user/patient/register",
         {firstName, lastName, email, password, phone, nic, dob, gender, role: "Patient"},
         {
           withCredentials: true,
