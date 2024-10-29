@@ -114,6 +114,7 @@
   background: #fff;
   border-radius: 20px;
   padding: 40px;
+  overflow-x: hidden;
 }
 .banner h2{
   font-size: 40px;
