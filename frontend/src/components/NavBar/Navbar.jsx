@@ -43,11 +43,15 @@ const Navbar = () => {
         {isAuthenticated ? (
           <div className="navbar-profile">
             <img src={"/image.png"} alt="" />
-                    <ul className='navbar-profile-dropdown'>
-                        <li><p>My Profile</p></li>
-                        <hr />
-                        <li onClick={()=>{handleLogout()}}><p>Log Out</p></li>
-                    </ul>
+            <ul className='navbar-profile-dropdown'>
+            <li>
+              <Link to="/profile"><p>My Profile</p></Link>
+            </li>
+            <hr />
+            <li onClick={handleLogout}>
+              <p>Log Out</p>
+             </li>
+            </ul>
           </div>
         ) : (
           <button onClick={gotoLogin} className="loginBtn btn">

@@ -144,3 +144,13 @@ export const deleteAppointment = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
+export const getUserAppointments = catchAsyncErrors(async (req, res, next) => {
+  const userId = req.user._id;  
+  const appointments = await Appointment.find({ patientId: userId });  
+
+  res.status(200).json({
+      success: true,
+      appointments,
+  });
+});
+

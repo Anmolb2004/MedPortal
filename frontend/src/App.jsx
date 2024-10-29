@@ -6,6 +6,7 @@ import Register from "./Pages/Register.jsx";
 import Login from "./Pages/Login.jsx";
 import Home from "./Pages/Home.jsx";
 import Appointment from "./Pages/Appointment.jsx";
+import Profile from "./Pages/Profile.jsx";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -55,6 +56,7 @@ const App = () => {
           <Route path="/doctor" element={<Doctors />} />
           <Route path="/department" element={<Department />} />
           <Route path="/locate" element={<LocateUs />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
         <Footer />
         <ToastContainer position="top-center" />
