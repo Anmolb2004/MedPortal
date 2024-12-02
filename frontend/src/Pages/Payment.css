@@ -1,0 +1,174 @@
+/* Container styling */
+.payment-container {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+  }
+  
+  /* Section styling */
+  .payment-section {
+    margin-top: 20px;
+  }
+  
+  /* Heading styles */
+  .payment-section h4 {
+    font-size: 1.4em;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  /* Styling for select dropdown */
+  .payment-select {
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    background-color: #f9f9f9;
+    font-size: 1em;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .payment-select:focus {
+    border-color: #28a745;
+    background-color: #ffffff;
+    outline: none;
+  }
+  
+  /* Input fields (card details, CVV, OTP) */
+  .card-details input,
+  .cvv-expiry input,
+  .otp-section input {
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    font-size: 1em;
+    transition: all 0.3s ease;
+  }
+  
+  .card-details input:focus,
+  .cvv-expiry input:focus,
+  .otp-section input:focus {
+    border-color: #28a745;
+    background-color: #ffffff;
+    outline: none;
+  }
+  
+  /* Button styling */
+  .pay-button {
+    width: 100%;
+    padding: 15px;
+    background: #28a745;
+    color: white;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .pay-button:hover {
+    background: #218838;
+  }
+  
+  .pay-button:disabled {
+    background-color: #b5e7a0;
+    cursor: not-allowed;
+  }
+  
+  /* Payment status message */
+  .payment-status {
+    font-size: 1.2em;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  .payment-status.success {
+    color: #28a745;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .payment-status.fail {
+    color: #dc3545;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* CVV and Expiry date layout */
+  .cvv-expiry {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+  }
+  
+  .cvv-input,
+  .expiry-input {
+    width: 48%;
+  }
+  
+  /* Input labels for better accessibility */
+  label {
+    font-size: 1em;
+    font-weight: 600;
+    color: #555;
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  /* Card section styling */
+  .card-details input {
+    letter-spacing: 2px; /* for better readability of card numbers */
+  }
+  
+  /* General text and alignment adjustments */
+  h1 {
+    font-size: 2em;
+    color: #333;
+    text-align: center;
+    font-weight: 700;
+  }
+  
+  h3 {
+    text-align: center;
+    font-size: 1.2em;
+    color: #777;
+    margin-bottom: 20px;
+  }
+  
+  /* Mobile responsiveness */
+  @media screen and (max-width: 600px) {
+    .cvv-expiry {
+      flex-direction: column;
+    }
+  
+    .cvv-input,
+    .expiry-input {
+      width: 100%;
+    }
+  }
+  
+  /* Animation for payment status */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  
+  
+  
+  

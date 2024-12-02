@@ -2,11 +2,13 @@ import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import "./Profile.css";
 import { Context } from "../main.jsx";
+import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 
 const Profile = () => {
   const { isAuthenticated, user } = useContext(Context);
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -36,8 +38,8 @@ const Profile = () => {
   }
 
   const handlePayment = (appointmentId) => {
-    // Add your payment handling logic here
-    console.log(`Initiate payment for appointment ID: ${appointmentId}`);
+    // Navigate to the Payment page, passing appointmentId in the state
+    navigate("/payment", { state: { appointmentId } });
   };
 
   return (
@@ -50,7 +52,7 @@ const Profile = () => {
             <th>Date</th>
             <th>Doctor</th>
             <th>Status</th>
-            <th>Action</th> {/* Add an Action column */}
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -72,7 +74,10 @@ const Profile = () => {
                 </td>
                 <td>
                   {appointment.status === "Accepted" && (
-                    <button onClick={() => handlePayment(appointment._id)} className="payment-button">
+                    <button
+                      onClick={() => handlePayment(appointment._id)}
+                      className="payment-button"
+                    >
                       Pay Now
                     </button>
                   )}
@@ -91,5 +96,6 @@ const Profile = () => {
 };
 
 export default Profile;
+
 
 
